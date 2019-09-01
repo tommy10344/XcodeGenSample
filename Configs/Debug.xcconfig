@@ -1,0 +1,2 @@
+#include "Configs/Base.xcconfig"
+#include "Pods/Target Support Files/Pods-XcodeGenSample/Pods-XcodeGenSample.debug.xcconfig"

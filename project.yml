@@ -1,0 +1,46 @@
+name: XcodeGenSample
+
+options:
+  bundleIdPrefix: com.tommy10344
+  developmentLanguage: ja
+
+fileGroups:
+  - Configs
+
+targets:
+  XcodeGenSample:
+    type: application
+    platform: iOS
+    deploymentTarget: "12.0"
+    sources: 
+      - XcodeGenSample
+    configFiles:
+      Debug: Configs/Debug.xcconfig
+      Release: Configs/Release.xcconfig
+    dependencies:
+      - target: Library
+    preBuildScripts:
+      - script: |
+          if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then
+              ${PODS_ROOT}/SwiftLint/swiftlint autocorrect --format
+              ${PODS_ROOT}/SwiftLint/swiftlint
+          else
+              echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+          fi
+        name: SwiftLint
+
+  Library:
+    type: framework
+    platform: iOS
+    deploymentTarget: "12.0"
+    sources: [Library]
+
+  XcodeGenSampleTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [XcodeGenSampleTests]
+    configFiles:
+      Debug: Configs/Test.xcconfig
+      Release: Configs/Test.xcconfig
+    dependencies:
+      - target: XcodeGenSample

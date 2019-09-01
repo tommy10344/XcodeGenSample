@@ -1,0 +1,3 @@
+#include "Configs/Base.xcconfig"
+
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/XcodeGenSample.app/XcodeGenSample
