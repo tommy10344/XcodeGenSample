@@ -1,4 +1,9 @@
-.PHONY: setup
-setup:
-	xcodegen generate
-	pod install
+.PHONY: bootstrap
+bootstrap:
+	bundle install --path .bundle
+	mint bootstrap
+
+.PHONY: generate
+generate:
+	mint run yonaskolb/xcodegen xcodegen generate
+	bundle exec pod install

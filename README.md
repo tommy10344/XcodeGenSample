@@ -2,15 +2,23 @@
 
 XcodeGen + xcconfig + CocoaPods + SwiftLint
 
+## Required
+
+- bundler
+- mint
+
 ## Setup
 
 ```
-$ xcodegen generate
-$ pod install
+$ bundle install --path .bundle
+$ mint bootstrap
+$ mint run yonaskolb/xcodegen xcodegen generate
+$ bundle exec pod install
 ```
 
 or
 
 ```
-$ make setup
+$ make bootstrap
+$ make generate
 ```
