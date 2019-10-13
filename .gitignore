@@ -184,3 +184,7 @@ build-iPhoneSimulator/
 
 ## XcodeGen
 *.xcodeproj
+
+## Generated Code (e.g. R.swift)
+Generated/*
+!.gitkeep

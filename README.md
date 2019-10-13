@@ -1,6 +1,6 @@
 # XcodeGen project sample
 
-XcodeGen + xcconfig + CocoaPods + SwiftLint
+XcodeGen + xcconfig + CocoaPods + SwiftLint + R.swift
 
 ## Required
 

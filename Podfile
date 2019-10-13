@@ -15,6 +15,7 @@ target 'XcodeGenSample' do
 
   # Pods for XcodeGenSample
   pod 'SwiftLint'
+  pod 'R.swift'
 
   target 'XcodeGenSampleTests' do
     inherit! :search_paths
