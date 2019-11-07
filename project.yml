@@ -28,8 +28,10 @@ targets:
       - name: SwiftLint
         script: |
           if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then
-              ${PODS_ROOT}/SwiftLint/swiftlint autocorrect --format
-              ${PODS_ROOT}/SwiftLint/swiftlint
+              git diff --name-only | grep .swift | while read filename; do
+                ${PODS_ROOT}/SwiftLint/swiftlint autocorrect --format --path "$filename"
+                ${PODS_ROOT}/SwiftLint/swiftlint --path "$filename"
+              done
           else
               echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
           fi
